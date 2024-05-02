@@ -6,7 +6,6 @@ const fileInput = document.getElementById('file')
 
 fileInput.onchange = () => uploadFile(fileInput.files[0])
 
-
 function uploadFile(file) {
     if (file) {
       // Add the file name to the input and change the button to an upload button
@@ -37,6 +36,8 @@ function uploadFile(file) {
             console.log('File uploaded successfully');
             // Display the response from process.php
             console.log(xhr.responseText);
+            // Redirect to final.html with the folder name
+            window.location.href = "final.html?folder=" + xhr.responseText;
             // Reset the input after a delay. For actual use, only remove the uploading class when the file is done uploading!
             setTimeout(() => {
               upload.classList.remove("uploading")

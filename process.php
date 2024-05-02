@@ -17,9 +17,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_FILES["file"])) {
         
         file_put_contents($match_file, $data, FILE_APPEND);
         
-        // Send the name of the folder created to final.html
-        header("Location: final.html?folder=$random_folder_name");
-        exit;
+        // Send the name of the folder created
+        echo $random_folder_name;
     } else {
         echo "Sorry, there was an error uploading your file.";
     }
